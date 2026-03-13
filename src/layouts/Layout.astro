@@ -1,0 +1,29 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = 'Professionelles Webdesign aus Stuttgart. Kostenloser Designvorschlag, Festpreise ab 499 €, fertig in 5–7 Tagen. Benjamin Reder — Webdesign & Webentwicklung.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body class="bg-white text-slate-900 antialiased">
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  @import '../styles/globals.css';
+</style>
